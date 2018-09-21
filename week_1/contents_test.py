@@ -20,3 +20,11 @@ contents = {
 	    "page" : "75",
 	},
 }
+
+for tbl_contents, cont_dict in contents.items():
+	left = cont_dict["chapter"]
+	middle = cont_dict["name"]
+	right = cont_dict["page"]
+
+	print(left.ljust(15) + middle.center(15) + right.rjust(15))
+	
