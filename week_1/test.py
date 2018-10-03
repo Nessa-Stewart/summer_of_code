@@ -10,4 +10,4 @@ def make_roman(number):
     		number %= n
     return result
 
-print("Your number in Roman Numerals is " + make_roman(number) + ".")
+print("Your Roman Numeral is " + make_roman(number) + ".")
