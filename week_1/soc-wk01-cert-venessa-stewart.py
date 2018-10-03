@@ -200,6 +200,21 @@ for tbl_contents, cont_dict in contents.items():
 	right = cont_dict["page"]
 
 	print(left.ljust(15) + middle.center(15) + right.rjust(15))
+
+	#Moo Function
+
+n=input("Number of times to say Moo: ")
+
+
+def say_moo():
+    print("Moo!" * int(n))
+    
+
+say_moo()
+
+#Roman Numerals
+
+
 	
 
 
