@@ -19,16 +19,13 @@ letter.append(raw)
 #print(letter)
 #print(alphabet)
 
-hits = [
-	(alphabet[i], letter.count(alphabet[i]))
-	for i in range(len(alphabet))
-	if letter.count(alphabet[i])
-]
+# hits = [
+# 	(alphabet[i], letter.count(alphabet[i]))
+# 	for i in range(len(alphabet))
+# 	if letter.count(alphabet[i])
+# ]
 
-print(hits)
-
-
-	
+# print(hits)
 
 
 
