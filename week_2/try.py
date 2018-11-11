@@ -5,23 +5,21 @@ alphabet = ['a', 'b','c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
 letter =[]
 letterfreq = []
 
+raw = file.read()
+
 def count_letters(text):
 	text=text.lower()
 	for char in alphabet:
 		count=0
-		for c in raw:
+		for c in text:
 			if c == char:
 				count+=1
 		letter.append(char)
 		letterfreq.append(str(count))
 
-raw = file.read()
-
-
 count_letters(raw)
 
 alphacount=list(zip(letter, letterfreq))
-
 
 print(alphacount)
 
