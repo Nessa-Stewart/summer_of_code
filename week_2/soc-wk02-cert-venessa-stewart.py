@@ -70,8 +70,8 @@ print(cypher)
 #Write a function that prints out all elements of the above board, sarting from the first element of the first line, till the end.
 # Each line should be read from beginning to end.
 
-M = 'land'
-o = 'water'
+M = 'M'
+o = '-'
 world = [
          [o,o,o,o,o,o,o,o,o,o,o],
          [o,o,o,o,M,M,o,o,o,o,o],
@@ -94,4 +94,74 @@ forwards()
 
 #Now write a function that prints out all elements in reverse.
 
+M = 'M'
+o = '-'
+world = [
+		 [o,o,o,o,o,o,o,o,o,o,o],
+		 [o,o,o,o,M,M,o,o,o,o,o],
+		 [o,o,o,o,o,o,o,o,M,M,o],
+		 [o,o,o,M,o,o,o,o,o,M,o],
+		 [o,o,o,M,o,M,M,o,o,o,o],
+		 [o,o,o,o,M,M,M,M,o,o,o],
+		 [o,o,o,M,M,M,M,M,M,M,o],
+		 [o,o,o,M,M,o,M,M,M,o,o],
+		 [o,o,o,o,o,o,M,M,o,o,o],
+		 [o,M,o,o,o,M,o,o,o,o,o],
+		 [o,o,o,o,o,o,o,o,o,o,o]
+		]
+
+def reverse(world):
+	world = [listElem[::-1] for listElem in world[::-1]]
+	return world
+
+world = reverse(world)
+
+print('\n'.join(' '.join(str(cell) for cell in row) for row in world))
+
+#There is one small bug in the continent counter above. Can you find it and fix it? (Hint:change the 
+#world so that the continent borders the edge)
+
+M = 'M'
+o = '-'
+world = [
+		 [o,o,o,o,o,o,o,o,o,o,o],
+		 [o,o,o,o,M,M,o,o,o,o,o],
+		 [o,o,o,o,o,o,o,o,M,M,o],
+		 [o,o,o,M,o,o,o,o,o,M,o],
+		 [o,o,o,M,o,M,M,o,o,o,o],
+		 [o,o,o,o,M,M,M,M,o,o,o],
+		 [o,o,o,M,M,M,M,M,M,M,M],
+		 [o,o,o,M,M,o,M,M,M,o,o],
+		 [o,o,o,o,o,o,M,M,o,o,o],
+		 [o,M,o,o,o,M,o,o,o,o,o],
+		 [o,o,o,o,o,o,o,o,o,o,o]
+		]
+
+
+
+def continent_counter(world, x, y):
+	if(x>10 or x<0) or (y>10 or y<0):
+		return 0
+	if world[y][x] != 'M':
+	# Either it's water or we already counter it,
+	# but wither way, we don't want to count it now.
+		return 0
+
+	#So firest we count this tile....
+	size = 1
+	world[y][x] = 'counted land'
+	#...then we count all of the neighboring eight tiles
+	#(and, of course, their neighbors by way of the recursion).
+
+	size = size + continent_counter(world, x-1,y-1)
+	size = size + continent_counter(world, x, y-1)
+	size = size + continent_counter(world, x+1, y-1)
+	size = size + continent_counter(world, x-1, y )
+	size = size + continent_counter(world, x+1, y )
+	size = size + continent_counter(world, x-1, y+1)
+	size = size + continent_counter(world, x , y+1)
+	size = size + continent_counter(world, x+1, y+1)
+	return size
+
+print(continent_counter(world, 5,5))
 
