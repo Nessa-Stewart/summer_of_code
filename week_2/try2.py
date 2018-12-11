@@ -170,40 +170,36 @@ tile = ['-', 'M']
 board = []
 
 
+
 # for i in range(5):
-# 	map.append(random.choice(tile))
+# 	board.append(random.choice(tile))
 # 	for i in range(5):
-# 		map.append(random.choice(tile))
+# 		board.append(random.choice(tile))
 
-# map = ' '.join(map)
+# board = [board[x:x+(5)]for x in range(0, len(board), (5))]
 
-# print(map)
+# # board = ' '.join(board)
+# # print(board)
 
-
-
-
-
-# print(map, sep ="\n")
-
-# def generate(n):
-# 	return[map.append(random.choice(tile))for i in range(n) for j in range(n)]
-
-# generate(20)
+# print('\n'.join(' '.join(str(cell) for cell in row) for row in board))
 
 
-# print(*map)
-
-def generate(rows, cols):
-	return[board.append(random.choice(tile))for i in range(cols) for j in range(rows)]
-
-generate(5, 5)
 
 
-# print(*map)
 
-# map = ' '.join(map)
 
-# print(*map)
 
-print('\n'.join(map(str, board)))
+
+def generate(n):
+	return[board.append(random.choice(tile))for i in range(n) for j in range(n)]
+
+generate(11)
+
+board = [board[x:x+(11)]for x in range(0, len(board), (11))]
+
+print('\n'.join(' '.join(str(cell) for cell in row) for row in board))
+
+# print(board)
+
+
 
