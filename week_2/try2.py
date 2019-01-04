@@ -193,9 +193,11 @@ board = []
 def generate(n):
 	return[board.append(random.choice(tile))for i in range(n) for j in range(n)]
 
-generate(11)
+number = int(input("Give me a number for square board size: "))
 
-board = [board[x:x+(11)]for x in range(0, len(board), (11))]
+generate(number)
+
+board = [board[x:x+(number)]for x in range(0, len(board), (number))]
 
 print('\n'.join(' '.join(str(cell) for cell in row) for row in board))
 

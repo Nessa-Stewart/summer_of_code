@@ -165,3 +165,22 @@ def continent_counter(world, x, y):
 
 print(continent_counter(world, 5,5))
 
+#Write a function that geneerates a n xn sized board with either land or water chosen randomly
+
+import random
+
+tile = ['-', 'M']
+
+board = []
+
+def generate(n):
+	return[board.append(random.choice(tile))for i in range(n) for j in range(n)]
+
+number = int(input("Give me a number for square board size: "))
+
+generate(number)
+
+board = [board[x:x+(number)]for x in range(0, len(board), (number))]
+
+print('\n'.join(' '.join(str(cell) for cell in row) for row in board))
+
