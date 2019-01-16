@@ -239,5 +239,5 @@ s1.my_print()
 
 # ☼ Compare the lexical diversity scores for humor and romance fiction in 1.1. Which genre is more lexically diverse?
 
-# Humour is more diverse
+#Answer - Humour is more diverse
 
